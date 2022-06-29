@@ -8,7 +8,8 @@ const {
 
 const {
     getCards,
-    recordCards
+    recordCards,
+    isMatch
 } = require('../controllers/match_controller');
 
 const { USER_ROLE } = require('../models/user_model');
@@ -18,5 +19,8 @@ router.route('/match/getcards')
 
 router.route('/match/recordcards')
     .post(authentication(USER_ROLE.ALL), wrapAsync(recordCards));
+
+router.route('/match/ismatch')
+    .post(authentication(USER_ROLE.ALL), wrapAsync(isMatch));
 
 module.exports = router;

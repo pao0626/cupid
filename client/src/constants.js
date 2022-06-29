@@ -6,4 +6,5 @@ export const API_SETPROFILE = `${API_HOST}/api/${API_VERSION}/user/setprofile`;
 export const API_GETPROFILE = `${API_HOST}/api/${API_VERSION}/user/profile`;
 export const API_GETCARDS= `${API_HOST}/api/${API_VERSION}/match/getcards`;
 export const API_RECORDCARDS= `${API_HOST}/api/${API_VERSION}/match/recordcards`;
+export const API_ISMATCH= `${API_HOST}/api/${API_VERSION}/match/ismatch`;
 

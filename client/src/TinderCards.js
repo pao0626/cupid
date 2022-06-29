@@ -1,7 +1,7 @@
 import './TinderCards.css';
 import { useState, useEffect, useRef, useMemo, createRef} from "react";
 import TinderCard from "react-tinder-card";
-import { API_GETCARDS, API_RECORDCARDS } from './constants';
+import { API_GETCARDS, API_ISMATCH, API_RECORDCARDS } from './constants';
 
 import { IconButton } from '@mui/material';
 import AssignmentIcon from '@mui/icons-material/Assignment';
@@ -16,6 +16,7 @@ function TinderCards (props) {
   const [currentIndex, setCurrentIndex] = useState()
   // const [lastDirection, setLastDirection] = useState();
   const [showComment, setShowComment] = useState(false);
+  const [canMatch, setCanMatch] = useState(false);
   const [people, setPeople] = useState([]);
 
   async function getCards(jwtToken) {
@@ -31,7 +32,18 @@ function TinderCards (props) {
     return fetch(API_RECORDCARDS, {
       body: JSON.stringify(data),
       headers: new Headers({
-        'Content-Type': 'application/json', // By aianlinb (Bug 6)
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwtToken}`,
+      }),
+      method: 'POST'
+    }).then((response) => response.json());
+  }
+
+  async function isMatch(data, jwtToken) {
+    return fetch(API_ISMATCH, {
+      body: JSON.stringify(data),
+      headers: new Headers({
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${jwtToken}`,
       }),
       method: 'POST'
@@ -75,14 +87,35 @@ function TinderCards (props) {
     // setLastDirection(direction);
     
     if(direction !== "down"){
+      // record swipe, so getCards wonot get again
       recordCards({otherID:otherID, direction:direction} ,props.jwtToken)
       .then((json) => {
         if (json.error) {
-          window.alert("Match db error");
+          window.alert("Match_record db error");
           return;
           // realGoBack();
         }   
-      });  
+      });
+      // if you swipe like , judge can match or not
+      if(direction !== "left"){
+        isMatch({otherID:otherID} ,props.jwtToken)
+        .then((json) => {
+          if (json.error) {
+            window.alert("Match db error");
+            return;
+          }
+          //alert match
+          console.log(json.canMatch.match)
+          if(json.canMatch.match){
+            Swal.fire({
+              icon: 'success',
+              title: 'Match',
+              showConfirmButton: false,
+              timer: 1000
+            })
+          }   
+        });
+      }
     }
   }
 

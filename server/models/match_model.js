@@ -8,7 +8,14 @@ const getCards = async (id, gender, pair ) => {
  
         const records = recordlist.map((i) => (i.otherID));
 
-        const [cards] = await pool.query('SELECT id, name, text, email, main_image, login_at FROM user WHERE gender = ? AND pair  = ? AND id NOT IN (?)' , [pair, gender, records]);
+        let cards;
+
+        if(records.length > 0){
+            [cards] = await pool.query('SELECT id, name, text, email, main_image, login_at FROM user WHERE gender = ? AND pair  = ? AND id NOT IN (?)' , [pair, gender, records]);
+        }
+        else{
+            [cards] = await pool.query('SELECT id, name, text, email, main_image, login_at FROM user WHERE gender = ? AND pair  = ?' , [pair, gender]);
+        }
         cards.map(
             card => {
                 card.main_imageURL=`http://localhost:4000/assets/${card.email}/${card.main_image}`
@@ -68,8 +75,70 @@ const recordCards = async (id, otherID, direction) => {
     }
 };
 
+const isMatch = async (userID, otherID) => {
+    const conn = await pool.getConnection();
+
+    try {
+        //swipe already
+        const [otherMatch] = await conn.query('SELECT * FROM match_record WHERE userID = ? AND otherID = ? ', [otherID, userID]);
+        if (otherMatch.length > 0){
+            //like you too
+            if(otherMatch[0].dislike){
+                return {match: false};
+            }
+        return {match: true};    
+        }
+        return {match: false};
+    } catch (error) {
+        return {error: error.message};
+    } 
+};
+
+const recordMatch = async (userID, otherID) => {
+    const conn = await pool.getConnection();
+
+    try {
+        await conn.query('START TRANSACTION');    
+        
+        let record;
+
+        if(userID < otherID){
+            record = {
+                userID: userID,
+                otherID: otherID,
+            };
+        }
+        else{
+            record = {
+                userID: otherID,
+                otherID: userID,
+            };
+        }
+        
+        const matchAt = new Date();
+        const roomID = `${record.userID}.${record.otherID}`;
+
+        record.match_time = matchAt;
+        record.roomID = roomID;
+
+        const queryStr = 'INSERT INTO match_pair SET ?';
+        const [result] = await conn.query(queryStr, record);
+
+        await conn.query('COMMIT');
+        return {result};   
+    } catch (error) {
+        console.error(error.message);
+        await conn.query('ROLLBACK');
+        return {error: error.message};
+    } finally {
+        await conn.release();
+    }
+};
+
 
 module.exports = {
     getCards,
-    recordCards
+    recordCards,
+    isMatch,
+    recordMatch
 };
