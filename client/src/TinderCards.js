@@ -16,7 +16,6 @@ function TinderCards (props) {
   const [currentIndex, setCurrentIndex] = useState()
   // const [lastDirection, setLastDirection] = useState();
   const [showComment, setShowComment] = useState(false);
-  const [canMatch, setCanMatch] = useState(false);
   const [people, setPeople] = useState([]);
 
   async function getCards(jwtToken) {
@@ -111,7 +110,7 @@ function TinderCards (props) {
               icon: 'success',
               title: 'Match',
               showConfirmButton: false,
-              timer: 1000
+              timer: 2000
             })
           }   
         });
