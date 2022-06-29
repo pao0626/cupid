@@ -1,0 +1,57 @@
+.profile__image{
+  width: 600px;
+  padding: 20px;
+  max-width: 85vw; /* view weight */
+  height: 50vh; /* view height */
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3);
+}
+
+.profile__container,
+.profile__container1{
+  display: flex;
+  justify-content: center; /* 確保物件在中心 */
+}
+
+.profile__container + .profile__container1{
+  margin-top: 3vh;
+}
+
+.profile__block{
+  width: 600px;
+  padding: 20px;
+  max-width: 85vw; /* view weight */
+  height: 20vh; /* view height */
+  border-radius: 20px;
+  background-color: rgb(243, 240, 236);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3);
+}
+
+.profile__name{
+  text-align: center;
+  height: 70px;
+  border-bottom: 1px solid #fafafa;
+}
+
+.profile__info{
+  display: flex;
+  align-items: center;
+  padding: 20px; 
+  height: 50px;
+  border-bottom: 1px solid #fafafa;
+}
+
+.profile__category{
+  margin-right:20px;
+}
+
+.profile__button{
+  margin-top: 3vh;
+  width:100%;
+  display: flex;
+  justify-content: space-evenly;
+}

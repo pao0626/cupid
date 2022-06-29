@@ -1,0 +1,32 @@
+{
+  "name": "cupid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "proxy": "http://localhost:4000",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pao0626/cupid.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pao0626/cupid/issues"
+  },
+  "homepage": "https://github.com/pao0626/cupid#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^2.3.3",
+    "node-fetch": "^3.2.6",
+    "socket.io": "^4.5.1",
+    "validator": "^13.7.0"
+  }
+}

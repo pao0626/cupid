@@ -1,0 +1,29 @@
+.chat {
+  display: flex;
+  align-items: center; /* 水平置中 */
+  justify-content: space-between; /* 彼此間隔 */
+  padding: 20px; 
+  height: 70px;
+  border-bottom: 1px solid #fafafa;
+}
+
+a { /* 連結美化 */
+  text-decoration: none; /* 去除底線 */
+  color:inherit; /* 去除顏色 */
+}
+
+.chat__details {
+  flex:1; /* 改掉space between ，使其向左靠 */
+}
+
+.chat__details > p {
+  color: gray;
+}
+
+.chat__image {
+  margin-right:20px; /* 和chat_detail保持距離*/
+}
+
+.chat__timestamp {
+  color: lightgray;
+}

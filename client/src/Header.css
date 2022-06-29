@@ -1,0 +1,16 @@
+.header{
+  display: flex;
+  justify-content: space-between; /* 自動間距 */
+  align-items: center;
+  border-bottom: 1px solid #f9f9f9;
+}
+
+.header__logo{
+  height: 40px;
+  object-fit: contain; /* 圖片保持不變形 */
+}
+
+.header__icon{
+  padding: 20px;
+}
+
