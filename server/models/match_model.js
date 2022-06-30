@@ -10,11 +10,12 @@ const getCards = async (id, gender, pair ) => {
 
         let cards;
 
+        //判斷有沒有滑過其他人
         if(records.length > 0){
-            [cards] = await pool.query('SELECT id, name, text, email, main_image, login_at FROM user WHERE gender = ? AND pair  = ? AND id NOT IN (?)' , [pair, gender, records]);
+            [cards] = await pool.query('SELECT id, name, text, email, main_image, login_at FROM user WHERE gender = ? AND pair  = ? AND id NOT IN (?) LIMIT 20' , [pair, gender, records]);
         }
         else{
-            [cards] = await pool.query('SELECT id, name, text, email, main_image, login_at FROM user WHERE gender = ? AND pair  = ?' , [pair, gender]);
+            [cards] = await pool.query('SELECT id, name, text, email, main_image, login_at FROM user WHERE gender = ? AND pair  = ? LIMIT 20' , [pair, gender]);
         }
         cards.map(
             card => {

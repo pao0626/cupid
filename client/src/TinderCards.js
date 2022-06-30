@@ -105,7 +105,7 @@ function TinderCards (props) {
             return;
           }
           //alert match
-          console.log(json.canMatch.match)
+
           if(json.canMatch.match){
             Swal.fire({
               icon: 'success',

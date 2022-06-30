@@ -14,12 +14,15 @@ const ChatScreen = () => {
   const [pairInfo, setPairInfo] = useState([]);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
+  const [matchTime, setMatchTime] = useState();
+  const UTCTimeObj = new Date(matchTime);
 
   useEffect(() => {
     getMessage(chatId,jwtToken).then((json) => {
       if (!json.error) {
         setMessages(json.result.messageHistory);
         setPairInfo(json.result.pairInfo);
+        setMatchTime(json.result.pairInfo[0].match_time)
         return;
       }
       console.log(json.error);
@@ -69,9 +72,10 @@ const ChatScreen = () => {
     <div>
       <Header />
       <div className="chatScreen">
-        <p className="chatScreen__timestamp">
-          YOU MATCHED WITH LABRADOR ON 08/21/2020
-        </p>
+        {pairInfo.length>0 && <p className="chatScreen__timestamp">
+            YOU MATCHED WITH LABRADOR ON {UTCTimeObj.toLocaleDateString()}
+          </p>
+        }
         <div className="chatScreen__container">
           {messages.map((message) => 
             (message.sender === parseInt(chatId)) ? (

@@ -27,8 +27,6 @@ function Chats() {
     });
   },[])
 
-  console.log(chats);
-
   return (
     <div>
       <Header />

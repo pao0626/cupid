@@ -1,8 +1,12 @@
 .header{
   display: flex;
+  position: fixed;
+  width: 100%;
+  height: 8vh;
   justify-content: space-between; /* 自動間距 */
   align-items: center;
   border-bottom: 1px solid #f9f9f9;
+  background-color: white;
 }
 
 .header__logo{

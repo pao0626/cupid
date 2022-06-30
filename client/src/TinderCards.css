@@ -27,11 +27,11 @@
 .tinderCards__cardContainer{
   display: flex;
   justify-content: center; /* 確保物件在中心 */
-  margin-top: 5vh;
 }
 
 .swipe{
   position: absolute; /* 讓所有卡片在同個位置 */
+  margin-top: 13vh;
 }
 
 .cards__block{

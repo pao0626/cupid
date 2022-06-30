@@ -30,8 +30,7 @@ const getMessage = async (req, res) => {
         res.status(403).send({error: result.error});
         return;
     }
-    console.log(result);
-
+    
     if (!result) {
         res.status(500).send({error: 'Database Query Error'});
         return;

@@ -45,7 +45,6 @@ function SetProfile() {
     data.forEach(function(value, key){
         object[key] = value;
     });
-    console.log(object);
 
     return await fetch(API_SETPROFILE, {
       body: data,

@@ -25,7 +25,7 @@ const getCoversation = async (id) => {
                     match_time: mp.match_time
                 }
         })
-        console.log(chats);
+
         //take match pair info from user table
         const chatsID = chats.map(c => c.id)
 
@@ -36,14 +36,12 @@ const getCoversation = async (id) => {
                 ci.main_imageURL=`http://localhost:4000/assets/${ci.email}/${ci.main_image}`
             }
         );
-        console.log(chatsInfo);
+
         //合併具有相同鍵值object的兩個array
         allChatsInfo = [...chats.concat(chatsInfo)
           .reduce((m, o) => m.set(o.id, Object.assign(m.get(o.id) || {}, o)),
           new Map()
         ).values()];
-          
-        console.log(allChatsInfo);
 
         return {allChatsInfo};   
     } catch (error) {
@@ -56,10 +54,12 @@ const getMessage = async (id, pairID) => {
     const conn = await pool.getConnection();
     try {
         const [pairInfo] = await pool.query('SELECT id, name, email, main_image, login_at FROM user WHERE id = ?', [pairID]);
+        const [matchTime] = await pool.query('SELECT match_time FROM match_pair WHERE (userID = ? AND otherID = ?) OR (userID = ? AND otherID = ?)', [id,pairID,pairID,id]);
         const [messageHistory] = await pool.query('SELECT * FROM message_record WHERE sender IN (?) ', [[pairID,id]]);
         
         pairInfo[0].main_imageURL=`http://localhost:4000/assets/${pairInfo[0].email}/${pairInfo[0].main_image}`
-
+        pairInfo[0].match_time = matchTime[0].match_time;
+        
         return {
             pairInfo: pairInfo,
             messageHistory: messageHistory

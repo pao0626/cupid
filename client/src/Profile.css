@@ -9,6 +9,10 @@
   box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3);
 }
 
+.profile__container{
+  padding-top: 8vh;
+}
+
 .profile__container,
 .profile__container1{
   display: flex;
