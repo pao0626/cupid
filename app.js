@@ -17,7 +17,8 @@ app.use(cors({
 
 app.use('/api/' + API_VERSION,  [
     require('./server/routes/user_route'),
-    require('./server/routes/match_route')
+    require('./server/routes/match_route'),
+    require('./server/routes/chat_route')
 ]);
 
 app.use(function (err, req, res, next) {
@@ -40,22 +41,6 @@ io.on('connection', socket => {
     socket.on('getMessage', message => {
         //回傳 message 給發送訊息的 Client
         socket.emit('getMessage', message)
-    })
-    socket.on('addRoom', room => {
-        //加入前檢查是否已有所在房間
-        const nowRoom = Object.keys(socket.rooms).find(room =>{
-            return room !== socket.id
-        })
-        //有的話要先離開
-        if(nowRoom){
-            socket.leave(nowRoom)
-        }
-        //再加入新的
-        socket.join(room)
-        //(1)發送給在同一個 room 中除了自己外的 Client
-        // socket.to(room).emit('addRoom', '已有新人加入聊天室！')
-        //(2)發送給在 room 中所有的 Client
-        io.sockets.in(room).emit('addRoom', '已加入聊天室！')
     })
     //送出中斷申請時先觸發此事件
     socket.on('disConnection', message => {

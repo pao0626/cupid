@@ -25,5 +25,6 @@ a { /* 連結美化 */
 }
 
 .chat__timestamp {
+  margin-left:20px;
   color: lightgray;
 }

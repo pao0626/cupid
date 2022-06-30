@@ -7,4 +7,7 @@ export const API_GETPROFILE = `${API_HOST}/api/${API_VERSION}/user/profile`;
 export const API_GETCARDS= `${API_HOST}/api/${API_VERSION}/match/getcards`;
 export const API_RECORDCARDS= `${API_HOST}/api/${API_VERSION}/match/recordcards`;
 export const API_ISMATCH= `${API_HOST}/api/${API_VERSION}/match/ismatch`;
+export const API_GETCOVERSATION= `${API_HOST}/api/${API_VERSION}/chat/getcoversation`;
+export const API_SAVEMESSAGE= `${API_HOST}/api/${API_VERSION}/chat/savemessage`;
+export const API_GETMESSAGE= `${API_HOST}/api/${API_VERSION}/chat/getmessage`;
 

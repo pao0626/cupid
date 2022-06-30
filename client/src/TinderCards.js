@@ -53,6 +53,7 @@ function TinderCards (props) {
     getCards(props.jwtToken).then((json) => {
       if (json.error) {
         window.alert("User db error");
+        return;
       }
       setPeople(json.cards);
       setCurrentIndex(json.cards.length - 1);

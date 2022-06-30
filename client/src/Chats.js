@@ -1,31 +1,48 @@
 import './Chats.css';
 import Header from './Header';
 import Chat from './Chat';
+import { API_GETCOVERSATION } from './constants';
+import { useState, useEffect } from "react";
 
 function Chats() {
+  const jwtToken = window.localStorage.getItem('jwtToken');
+  const [chats, setChats] = useState([]);
+
+  async function getCoversation(jwtToken) {
+    return fetch(API_GETCOVERSATION, {
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${jwtToken}`,
+      }),
+    }).then((response) => response.json());
+  }
+
+  useEffect(() => {
+    getCoversation(jwtToken).then((json) => {
+      if (json.error) {
+        window.alert("User db error");
+        return;
+      }
+      setChats(json.allChatsInfo)
+    });
+  },[])
+
+  console.log(chats);
+
   return (
     <div>
       <Header />
       <div className='chats'>
-        <Chat
-        id="1"
-        name="Labrador"
-        message="Wuff" 
-        timestamp="6 mins ago" 
-        profilePic="https://yummytw.com/wp-content/uploads/20220316184705_47.jpeg"
-        />
-        <Chat
-        id="2"
-        name="Shiba Inu"
-        message="Bork" 
-        timestamp="1 hr ago" 
-        profilePic="https://thehappypuppysite.com/wp-content/uploads/2019/06/Mini-Shiba-Inu-HP-long.jpg"/>
-        <Chat
-        id="3"
-        name="Corgi"
-        message="Awooo" 
-        timestamp="4 hrs ago" 
-        profilePic="https://i.pinimg.com/originals/cb/d4/1f/cbd41fb83c06a915a79ed0ab9ca63789.jpg"/>  
+        {chats.map(c=>(
+          <Chat
+            key={c.id}
+            id={c.id}
+            name={c.name}
+            message="Wuff" 
+            timestamp="6 mins ago" 
+            profilePic={c.main_imageURL}
+          />
+        ))}  
       </div>
     </div>
   );
