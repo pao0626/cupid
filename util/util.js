@@ -76,7 +76,7 @@ const authentication = (roleId) => {
                 if (!userDetail) {
                     res.status(403).send({error: 'Forbidden'});
                 } else {
-                    req.user.main_image=`http://localhost:4000/assets/${userDetail.email}/${userDetail.main_image}`;
+                    req.user.main_image=`http://54.178.37.192/assets/${userDetail.email}/${userDetail.main_image}`;
                     req.user.text=userDetail.text;
                     req.user.id=userDetail.id;
                     req.user.role_id=userDetail.role_id;

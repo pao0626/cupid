@@ -15,7 +15,7 @@ function Header() {
       </Link>
       <Link to="/">
         <img className='header__logo' 
-        src='http://localhost:4000/images/cupid.png' 
+        src='http://54.178.37.192/images/cupid.png' 
         alt='cupid logo' />
       </Link>
       <Link to="/chats">
