@@ -1,4 +1,4 @@
-export const API_HOST = "http://54.178.37.192";
+export const API_HOST = "http://localhost:4000";
 export const API_VERSION = "1.0";
 export const API_SIGNUP = `${API_HOST}/api/${API_VERSION}/user/signup`;
 export const API_SIGNIN = `${API_HOST}/api/${API_VERSION}/user/signin`;

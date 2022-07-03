@@ -1,61 +1,61 @@
 .profile__image{
-  width: 600px;
-  padding: 20px;
-  max-width: 85vw; /* view weight */
-  height: 50vh; /* view height */
-  border-radius: 20px;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3);
+	width: 600px;
+	padding: 20px;
+	max-width: 85vw; /* view weight */
+	height: 50vh; /* view height */
+	border-radius: 20px;
+	background-size: cover;
+	background-position: center;
+	box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3);
 }
 
 .profile__container{
-  padding-top: 8vh;
+	padding-top: 8vh;
 }
 
 .profile__container,
 .profile__container1{
-  display: flex;
-  justify-content: center; /* 確保物件在中心 */
+	display: flex;
+	justify-content: center; /* 確保物件在中心 */
 }
 
 .profile__container + .profile__container1{
-  margin-top: 10px;
+	margin-top: 10px;
 }
 
 .profile__block{
-  width: 600px;
-  padding: 20px;
-  max-width: 85vw; /* view weight */
-  height: 20vh; /* view height */
-  border-radius: 20px;
-  background-color: rgb(243, 240, 236);
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3);
+	width: 600px;
+	padding: 20px;
+	max-width: 85vw; /* view weight */
+	height: 20vh; /* view height */
+	border-radius: 20px;
+	background-color: rgb(243, 240, 236);
+	background-size: cover;
+	background-position: center;
+	box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3);
 }
 
 .profile__name{
-  text-align: center;
-  height: 10vh;
-  border-bottom: 1px solid #fafafa;
+	text-align: center;
+	height: 10vh;
+	border-bottom: 1px solid #fafafa;
 }
 
 .profile__info{
-  display: flex;
-  align-items: center;
-  padding: 20px; 
-  height: 3vh;
-  border-bottom: 1px solid #fafafa;
+	display: flex;
+	align-items: center;
+	padding: 20px; 
+	height: 3vh;
+	border-bottom: 1px solid #fafafa;
 }
 
 .profile__category{
-  margin-right:20px;
+	margin-right:20px;
 }
 
 .profile__button{
-  margin-top: 30px;
-  width:100%;
-  display: flex;
-  justify-content: space-evenly;
+	margin-top: 30px;
+	width:100%;
+	display: flex;
+	justify-content: space-evenly;
 }

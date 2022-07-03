@@ -1,92 +1,94 @@
 .card{
-  display: flex;
-  position: relative; /* 與父卡片相對位置 */
-  width: 600px;
-  padding: 20px;
-  max-width: 85vw; /* view weight */
-  height: 50vh; /* view height */
-  border: 2px solid;
-  border-color: black;
-  border-radius: 20px;
-  background-size: cover;
-  background-position: center;
-  /* box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3); */
+	display: flex;
+	position: relative; /* 與父卡片相對位置 */
+	width: 600px;
+	padding: 20px;
+	max-width: 85vw; /* view weight */
+	height: 50vh; /* view height */
+	border: 2px solid;
+	border-color: black;
+	border-radius: 20px;
+	background-size: cover;
+	background-position: center;
+	/* box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3); */
 }
 
 .card > h3 {
-  position: absolute;
-  bottom: 10px;
-  color: white;
+	position: absolute;
+	bottom: 10px;
+	color: white;
 }
 
 .cards__icon {
-  margin-left: auto !important; /* css mui_icon need !important */
-  margin-top: auto !important;
+	margin-left: auto !important; /* css mui_icon need !important */
+	margin-top: auto !important;
 }
 
 .tinderCards__cardContainer{
-  display: flex;
-  justify-content: center; /* 確保物件在中心 */
+	display: flex;
+	justify-content: center; /* 確保物件在中心 */
 }
 
 .swipe{
-  position: absolute; /* 讓所有卡片在同個位置 */
-  margin-top: 13vh;
+	position: absolute; /* 讓所有卡片在同個位置 */
+	margin-top: 13vh;
+	display: flex;
+	flex-direction: column;
 }
 
 .cards__block{
-  display: flex;
-  align-items: center;
-  width: 600px;
-  padding: 20px;
-  max-width: 85vw; /* view weight */
-  height: 5vh; /* view height */
-  border-radius: 20px;
-  background-color: rgb(243, 240, 236);
-  background-size: cover;
-  background-position: center;
-  /* box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3); */
+	display: flex;
+	align-items: center;
+	width: 600px;
+	padding: 20px;
+	max-width: 85vw; /* view weight */
+	height: 5vh; /* view height */
+	border-radius: 20px;
+	background-color: rgb(243, 240, 236);
+	background-size: cover;
+	background-position: center;
+	/* box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3); */
 }
 
 .cards__category{
-  margin-right:20px;
+	margin-right:20px;
 }
 
 .swipeButtons {
-  position: fixed;
-  bottom: 5vh;
-  width:100%;
-  display: flex;
-  justify-content: space-evenly;  /* 讓按鈕間隔相同 */
+	position: fixed;
+	bottom: 5vh;
+	width:100%;
+	display: flex;
+	justify-content: space-evenly;	/* 讓按鈕間隔相同 */
 }
 
 /* 特殊語法控管icon style */
 .swipeButtons .MuiIconButton-root {
-  background-color:white;
-  box-shadow: 0px 10px 53px 0px rgba(0,0,0,0.3) !important;
+	background-color:white;
+	box-shadow: 0px 10px 53px 0px rgba(0,0,0,0.3) !important;
 }
 
 .swipeButtons__repeat {
-  padding: 2vw !important;
-  color: #f5b748 !important;
+	padding: 2vw !important;
+	color: #f5b748 !important;
 }
 
 .swipeButtons__left {
-  padding: 2vw !important;
-  color: #ec5e6f !important;
+	padding: 2vw !important;
+	color: #ec5e6f !important;
 }
 
 .swipeButtons__star {
-  padding: 2vw !important;
-  color: #62b4f9 !important;
+	padding: 2vw !important;
+	color: #62b4f9 !important;
 }
 
 .swipeButtons__right {
-  padding: 2vw !important;
-  color: #76e2b3 !important;
+	padding: 2vw !important;
+	color: #76e2b3 !important;
 }
 
 .swipeButtons__lightning {
-    padding: 2vw !important;
-    color: #915dd1 !important;
+	padding: 2vw !important;
+	color: #915dd1 !important;
 }
