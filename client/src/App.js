@@ -7,7 +7,7 @@ import SignIn from './SignIn';
 import SignUp from './SignUp';
 import SetProfile from './SetProfile';
 import Profile from './Profile';
-import { API_GETPROFILE } from './constants';
+import { API_GETPROFILE, API_HOST } from './constants';
 import { useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 
@@ -18,7 +18,7 @@ function App() {
 	const socket = useRef();
 	
 	useEffect(() => {
-	socket.current = io("http://localhost:4000");
+	socket.current = io(API_HOST);
 	socket.current.on("getMessage", (data) => {
 		setArrivalMessage({
 			sender: data.senderId,

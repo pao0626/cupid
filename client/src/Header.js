@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import PersonIcon from '@mui/icons-material/Person';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import { IconButton } from '@mui/material';
+import { API_LOGO } from './constants';
 
 function Header() {
 	return (
@@ -15,8 +16,9 @@ function Header() {
 		</Link>
 		<Link to="/">
 		<img className='header__logo' 
-		src='http://localhost:4000/api/images/cupid.png' 
-		alt='cupid logo' />
+		src = {API_LOGO}		
+		alt='cupid logo' 
+		/>
 		</Link>
 		<Link to="/chats">
 		<IconButton> 

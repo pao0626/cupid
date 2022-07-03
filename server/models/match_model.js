@@ -1,4 +1,6 @@
+require('dotenv').config();
 const {pool} = require('./mysqlcon');
+const {HOST} = process.env;
 
 const getCards = async (id, gender, pair ) => {
 	const conn = await pool.getConnection();
@@ -23,9 +25,10 @@ const getCards = async (id, gender, pair ) => {
 		}
 		cards.map(
 			card => {
-				card.main_imageURL=`http://localhost:4000/api/assets/${card.email}/${card.main_image}`
+				card.main_imageURL=HOST+`/api/assets/${card.email}/${card.main_image}`
 			}
 		);
+
 		return {cards};	 
 	} catch (error) {
 		console.error(error.message);

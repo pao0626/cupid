@@ -5,7 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const port = process.env.PORT;
 const User = require('../server/models/user_model');
-const {TOKEN_SECRET} = process.env; 
+const {TOKEN_SECRET, HOST} = process.env; 
 const jwt = require('jsonwebtoken');
 const { promisify } = require('util'); // util from native nodejs library
 
@@ -76,7 +76,7 @@ const authentication = (roleId) => {
 				if (!userDetail) {
 					res.status(403).send({error: 'Forbidden'});
 				} else {
-					req.user.main_image=`http://localhost:4000/api/assets/${userDetail.email}/${userDetail.main_image}`;
+					req.user.main_image=HOST+`/api/assets/${userDetail.email}/${userDetail.main_image}`;
 					req.user.text=userDetail.text;
 					req.user.id=userDetail.id;
 					req.user.role_id=userDetail.role_id;
