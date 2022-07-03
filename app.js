@@ -64,11 +64,13 @@ io.on('connection', socket => {
 	//監聽透過 connection 傳進來的事件
 	socket.on("sendMessage", ({ senderId, receiverId, text }) => {
 		const user = getUser(receiverId);
-		io.to(user.socketId).emit("getMessage", {
-			senderId,
-			receiverId,
-			text,
-		});
+		if(user){
+			io.to(user.socketId).emit("getMessage", {
+				senderId,
+				receiverId,
+				text,
+			});
+		}
 	});
 	//中斷後觸發此監聽
 	socket.on("disconnect", () => {

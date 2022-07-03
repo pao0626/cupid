@@ -80,8 +80,6 @@ const ChatScreen = (props) => {
 		scrollRef.current?.scrollIntoView();
 	}, [messages]);
 
-	
-
 	return (
 	<div>
 		<Header />
@@ -94,12 +92,12 @@ const ChatScreen = (props) => {
 			{messages.map((message) => 
 			(message.sender === chatIdInt) ? (
 				<div className="chatScreen__message" key={message.id} ref={scrollRef}>
-				<Avatar
-					className="chatScreen__image"
-					alt={pairInfo[0].name}
-					src={pairInfo[0].main_imageURL}
-				/>
-				<p className="chatScreen__text">{message.text}</p>
+					<Avatar
+						className="chatScreen__image"
+						alt={pairInfo[0].name}
+						src={pairInfo[0].main_imageURL}
+					/>
+					<p className="chatScreen__text">{message.text}</p>
 				</div>
 			) : (
 				<div className="chatScreen__message" key={message.id} ref={scrollRef}>

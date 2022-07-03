@@ -21,10 +21,10 @@ function App() {
 	socket.current = io("http://localhost:4000");
 	socket.current.on("getMessage", (data) => {
 		setArrivalMessage({
-		sender: data.senderId,
-		receiver: data.receiverId,
-		text: data.text,
-		createdAt: Date.now(),
+			sender: data.senderId,
+			receiver: data.receiverId,
+			text: data.text,
+			createdAt: Date.now(),
 		});
 	});
 	}, []);
