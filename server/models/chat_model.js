@@ -59,7 +59,7 @@ const getMessage = async (id, pairID) => {
 	try {
 		const [pairInfo] = await conn.query('SELECT id, name, email, main_image, login_at FROM user WHERE id = ?', [pairID]);
 		const [matchTime] = await conn.query('SELECT match_time FROM match_pair WHERE (userID = ? AND otherID = ?) OR (userID = ? AND otherID = ?)', [id,pairID,pairID,id]);
-		const [messageHistory] = await conn.query('SELECT * FROM message_record WHERE sender IN (?) ', [[pairID,id]]);
+		const [messageHistory] = await conn.query('SELECT * FROM message_record WHERE (sender = ? AND receiver = ?) OR (sender = ? AND receiver = ?)', [id,pairID,pairID,id]);
 		
 		pairInfo[0].main_imageURL=HOST+`/api/assets/${pairInfo[0].email}/${pairInfo[0].main_image}`
 		pairInfo[0].match_time = matchTime[0].match_time;

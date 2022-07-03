@@ -23,6 +23,10 @@
 	background-color: lightgray;
 	padding: 15px;
 	border-radius: 20px;
+	word-break: normal;
+	white-space: pre-wrap;
+	word-wrap:break-word;
+	max-width: 50vw;
 }
 
 .chatScreen__owntext {
@@ -31,6 +35,10 @@
 	padding: 15px;
 	border-radius: 20px;
 	color: white;
+	word-break: normal;
+	white-space: pre-wrap;
+	word-wrap:break-word;
+	max-width: 50vw;
 }
 
 .chatScreen__form {

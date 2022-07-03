@@ -22,7 +22,7 @@ const getCoversation = async (req, res) => {
 
 const getMessage = async (req, res) => {
 	const {id } = req.user;
-	const pairID = req.query.id;
+	const pairID = parseInt(req.query.id);
 
 	const result = await Chat.getMessage(id, pairID);
 

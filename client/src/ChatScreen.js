@@ -94,14 +94,14 @@ const ChatScreen = (props) => {
 				<div className="chatScreen__message" key={message.id} ref={scrollRef}>
 					<Avatar
 						className="chatScreen__image"
-						alt={pairInfo[0].name}
-						src={pairInfo[0].main_imageURL}
+						alt="photo"
+						src={pairInfo[0]?.main_imageURL}
 					/>
 					<p className="chatScreen__text">{message.text}</p>
 				</div>
 			) : (
 				<div className="chatScreen__message" key={message.id} ref={scrollRef}>
-				<p className="chatScreen__owntext">{message.text}</p>
+					<p className="chatScreen__owntext">{message.text}</p>
 				</div>
 			)
 			)}

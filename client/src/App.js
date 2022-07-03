@@ -15,6 +15,7 @@ function App() {
 	const jwtToken = window.localStorage.getItem('jwtToken');
 	const [profile, setProfile] = useState([]);
 	const [arrivalMessage, setArrivalMessage] = useState(null); //socket傳來的訊息
+	const [onlineUsers, setOnlineUsers] = useState([]);
 	const socket = useRef();
 	
 	useEffect(() => {
@@ -51,7 +52,10 @@ function App() {
 	if(profile.id){
 		socket.current.emit("addUser", profile.id);
 		socket.current.on("getUsers", (users) => {
-			console.log(users)	
+			console.log(users)
+			setOnlineUsers(
+				users.filter((u) => u.userId !== profile.id)
+			);	
 		});
 	}
 	}, [profile]);
@@ -61,7 +65,7 @@ function App() {
 		<BrowserRouter>
 		<Routes>			
 			<Route path="/" element={<Home />}/>
-			<Route path="/chats" element={<Chats />}/>
+			<Route path="/chats" element={<Chats onlineUsers={onlineUsers}/>}/>
 			<Route path="/chats/:chatId" element={<ChatScreen userid={profile.id} socket={socket} arrivalMessage={arrivalMessage}/>}/>
 			<Route path="/profile" element={<Profile profile={profile}/>}/>
 			<Route path="/signin" element={<SignIn />}/>

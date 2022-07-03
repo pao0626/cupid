@@ -14,14 +14,11 @@ a { /* 連結美化 */
 
 .chat__details {
 	flex:1; /* 改掉space between ，使其向左靠 */
+	margin-left: 20px;
 }
 
 .chat__details > p {
 	color: gray;
-}
-
-.chat__image {
-	margin-right:20px; /* 和chat_detail保持距離*/
 }
 
 .chat__timestamp {

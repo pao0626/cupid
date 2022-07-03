@@ -4,9 +4,10 @@ import Chat from './Chat';
 import { API_GETCOVERSATION } from './constants';
 import { useState, useEffect } from "react";
 
-function Chats() {
+function Chats(props) {
 	const jwtToken = window.localStorage.getItem('jwtToken');
 	const [chats, setChats] = useState([]);
+	const [onlineIdArray, setOnlineIdArray] = useState([]);
 
 	async function getCoversation(jwtToken) {
 	return fetch(API_GETCOVERSATION, {
@@ -27,6 +28,10 @@ function Chats() {
 	});
 	},[])
 
+	useEffect(() => {
+		setOnlineIdArray(props.onlineUsers.map(ol => ol.userId))
+	},[props.onlineUsers])
+
 	return (
 	<div>
 		<Header />
@@ -38,6 +43,7 @@ function Chats() {
 			name={c.name}
 			message="Wuff" 
 			timestamp="6 mins ago" 
+			online={onlineIdArray.includes(c.id)}
 			profilePic={c.main_imageURL}
 			/>
 		))}	
