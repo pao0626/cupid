@@ -33,7 +33,7 @@ const getCoversation = async (id) => {
 		 
 		chatsInfo.map(
 			ci => {
-				ci.main_imageURL=`http://54.178.37.192/api/assets/${ci.email}/${ci.main_image}`
+				ci.main_imageURL=`http://localhost:4000/api/assets/${ci.email}/${ci.main_image}`
 			}
 		);
 
@@ -59,7 +59,7 @@ const getMessage = async (id, pairID) => {
 		const [matchTime] = await conn.query('SELECT match_time FROM match_pair WHERE (userID = ? AND otherID = ?) OR (userID = ? AND otherID = ?)', [id,pairID,pairID,id]);
 		const [messageHistory] = await conn.query('SELECT * FROM message_record WHERE sender IN (?) ', [[pairID,id]]);
 		
-		pairInfo[0].main_imageURL=`http://54.178.37.192/api/assets/${pairInfo[0].email}/${pairInfo[0].main_image}`
+		pairInfo[0].main_imageURL=`http://localhost:4000/api/assets/${pairInfo[0].email}/${pairInfo[0].main_image}`
 		pairInfo[0].match_time = matchTime[0].match_time;
 		
 		return {
