@@ -23,7 +23,7 @@ const getCards = async (id, gender, pair ) => {
 		}
 		cards.map(
 			card => {
-				card.main_imageURL=`http://54.178.37.192/api/assets/${card.email}/${card.main_image}`
+				card.main_imageURL=`http://54.178.37.192/assets/${card.email}/${card.main_image}`
 			}
 		);
 		return {cards};	 

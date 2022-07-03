@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
-app.use("/api",express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 //將request進來的 data 轉成 json()
 app.use(express.json());
