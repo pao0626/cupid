@@ -18,7 +18,7 @@ function App() {
 	const socket = useRef();
 	
 	useEffect(() => {
-	socket.current = io("http://localhost:4000");
+	socket.current = io("http://54.178.37.192");
 	socket.current.on("getMessage", (data) => {
 		setArrivalMessage({
 		sender: data.senderId,

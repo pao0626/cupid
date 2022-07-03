@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "app.js",
-	"proxy": "http://localhost:4000",
+	"proxy": "http://54.178.37.192",
 	"scripts": {
 	"test": "echo \"Error: no test specified\" && exit 1"
 	},
