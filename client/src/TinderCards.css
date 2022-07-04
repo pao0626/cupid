@@ -1,7 +1,7 @@
 .card{
 	display: flex;
 	position: relative; /* 與父卡片相對位置 */
-	width: 600px;
+	width: 75vw;
 	padding: 20px;
 	max-width: 85vw; /* view weight */
 	height: 50vh; /* view height */
@@ -13,7 +13,7 @@
 	/* box-shadow: 0px 18px 53px 0px rgba(0, 0, 0, 0.3); */
 }
 
-.card > h3 {
+.card > h2 {
 	position: absolute;
 	bottom: 10px;
 	color: white;
@@ -31,7 +31,7 @@
 
 .swipe{
 	position: absolute; /* 讓所有卡片在同個位置 */
-	margin-top: 13vh;
+	margin-top: 15vh;
 	display: flex;
 	flex-direction: column;
 }
@@ -39,7 +39,7 @@
 .cards__block{
 	display: flex;
 	align-items: center;
-	width: 600px;
+	width: 75vw;
 	padding: 20px;
 	max-width: 85vw; /* view weight */
 	height: 5vh; /* view height */
@@ -51,7 +51,7 @@
 }
 
 .cards__category{
-	margin-right:20px;
+	margin-right:30px;
 }
 
 .swipeButtons {

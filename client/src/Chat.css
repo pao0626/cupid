@@ -3,7 +3,7 @@
 	align-items: center; /* 水平置中 */
 	justify-content: space-between; /* 彼此間隔 */
 	padding: 20px; 
-	height: 70px;
+	height: 10vh;
 	border-bottom: 1px solid #fafafa;
 }
 
@@ -14,7 +14,7 @@ a { /* 連結美化 */
 
 .chat__details {
 	flex:1; /* 改掉space between ，使其向左靠 */
-	margin-left: 20px;
+	margin-left: 50px;
 }
 
 .chat__details > p {
@@ -24,4 +24,9 @@ a { /* 連結美化 */
 .chat__timestamp {
 	margin-left:20px;
 	color: lightgray;
+}
+
+.chat__image {
+	width: 80px !important; 
+	height: 80px !important;
 }

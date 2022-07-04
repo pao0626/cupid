@@ -170,17 +170,17 @@ function TinderCards (props) {
 				style={{ backgroundImage: `url(${person.main_imageURL})`}} //js for css
 				className="card"
 			>
-				<h3>{person.name}</h3>
+				<h2>{person.name}</h2>
 				<IconButton className="cards__icon" 
 				onClick={() => {setShowComment(!showComment)}} 
 				onTouchStart={() => {setShowComment(!showComment)}}
 				>
-				<ExpandCircleDownIcon color="primary" fontSize='large'/>
+				<ExpandCircleDownIcon color="primary" sx={{ fontSize: 50 }}/>
 				</IconButton>
 			</div>
 			{showComment && 
 				<div className='cards__block'> 
-				<AssignmentIcon className='cards__category' />		 
+				<AssignmentIcon className='cards__category' sx={{ fontSize: 35 }} />		 
 				<p className="cards__text">{person.text}</p>
 				</div>
 			}
@@ -189,16 +189,16 @@ function TinderCards (props) {
 		</div>
 		<div className='swipeButtons'>
 		<IconButton className="swipeButtons__repeat" onClick={() => goBack()}>
-			<ReplayIcon fontSize="large" />
+			<ReplayIcon  sx={{ fontSize: 60 }}/>
 		</IconButton>
 		<IconButton className="swipeButtons__left" onClick={() => swipe('left')}>
-			<CloseIcon fontSize="large" />
+			<CloseIcon  sx={{ fontSize: 60 }} />
 		</IconButton>
 		<IconButton className="swipeButtons__right" onClick={() => swipe('right')}>
-			<FavoriteIcon fontSize="large" />
+			<FavoriteIcon  sx={{ fontSize: 60 }} />
 		</IconButton>
 		<IconButton className="swipeButtons__star" onClick={() => swipe('up')}>
-			<StarRateIcon fontSize="large" />
+			<StarRateIcon  sx={{ fontSize: 60 }} />
 		</IconButton>
 		{/* <IconButton className="swipeButtons__lightning">
 			<FlashOnIcon fontSize="large" />

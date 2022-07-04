@@ -1,3 +1,4 @@
+import './SetProfile.css';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -87,22 +88,22 @@ function SetProfile() {
 
 	return (
 	<ThemeProvider theme={theme}>
-		<Container component="main" maxWidth="xs">
+		<Container component="main" maxWidth="sm">
 		<CssBaseline />
 		<Box
 			sx={{
-			marginTop: 8,
+			marginTop: 15,
 			display: 'flex',
 			flexDirection: 'column',
 			alignItems: 'center',
 			}}
 		>
-			<Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-			<AssignmentIndIcon/>
+			<Avatar className='setProfile__logo' sx={{ m: 1, bgcolor: 'secondary.main' }}>
+			<AssignmentIndIcon sx={{ fontSize: 60 }}/>
 			</Avatar>
-			<Typography component="h1" variant="h5">
-			Personal Info
-			</Typography>
+			<h2>
+				Personal Info
+			</h2>
 			{image && <Box 
 			component="img"
 			sx={{
@@ -114,43 +115,56 @@ function SetProfile() {
 			/>
 			}
 			<Box component="form"	Validate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-			<FormControl sx={{ mt: 3 }} required fullWidth>
-				<FormLabel id="gender">"You are ..."</FormLabel>
+			<FormControl sx={{ mt: 10 }} required fullWidth>
+				<FormLabel id="gender"><p>You are ...</p></FormLabel>
 				<RadioGroup
 				row
 				aria-labelledby="gender"
 				name="gender"
 				>
-				<FormControlLabel value="female" control={<Radio />} label="Female" />
-				<FormControlLabel value="male" control={<Radio />} label="Male" />
+				<FormControlLabel value="female" control={<Radio />} label={<h3>Female</h3>} />
+				<FormControlLabel value="male" control={<Radio />} label={<h3>Male</h3>} />
 				</RadioGroup>
 			</FormControl>
-			<FormControl sx={{ mt: 2 }} required fullWidth>
-				<FormLabel id="pair">"Search for ..."</FormLabel>
+			<FormControl sx={{ mt: 5 }} required fullWidth>
+				<FormLabel id="pair"><p>Search for ...</p></FormLabel>
 				<RadioGroup
 				row
 				aria-labelledby="pair"
 				name="pair"
 				>
-				<FormControlLabel value="female" control={<Radio />} label="Female" />
-				<FormControlLabel value="male" control={<Radio />} label="Male" />
+				<FormControlLabel value="female" control={<Radio />} label={<h3>Female</h3>} />
+				<FormControlLabel value="male" control={<Radio />} label={<h3>Male</h3>} />
 				</RadioGroup>
 			</FormControl>
 			<TextField
+				sx={{ mt: 5 }}
 				margin="normal"
 				required
 				fullWidth
 				id="text"
 				name="text"
 				label="Introduction"
+				style={{height: 100}}
+				InputLabelProps={{
+				    style: {
+						fontSize: 25,
+						height: 90,
+					},
+				}}
+				inputProps={{
+			        style: {
+						fontSize: 25,
+			        	height: 90,
+			        	padding: '0 14px',
+			        },
+				}}
 				type="textarea"
-				maxRows = "2"
-				multiline
 			/>
 			<Button
 				variant="contained"				
 				component="label"
-				sx={{ mt: 2 }} 
+				sx={{ mt: 5, mb: 3, fontSize: 20 }} 
 				color="primary">
 				<AddAPhotoIcon sx={{ mr: 1 }} />	Upload a image (JPG/PNG ONLY)
 				<input 
@@ -165,13 +179,13 @@ function SetProfile() {
 				type="submit"
 				fullWidth
 				variant="contained"
-				sx={{ mt: 3, mb: 2 }}
+				sx={{ mt: 3, mb: 3, fontSize: 25 }}
 			>
 				Commit
 			</Button>
 			</Box>
 		</Box>
-		<Copyright sx={{ mt: 8, mb: 4 }} />
+		<Copyright sx={{ mt: 5, mb: 4 }} />
 		</Container>
 	</ThemeProvider>
 	);

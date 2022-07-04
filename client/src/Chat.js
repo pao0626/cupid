@@ -8,6 +8,8 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
     backgroundColor: '#44b700',
     color: '#44b700',
+    width: 15,
+    height: 15,
     boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
     '&::after': {
         position: 'absolute',

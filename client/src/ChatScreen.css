@@ -1,5 +1,5 @@
 .chatScreen{
-	padding-top: 8vh;
+	padding-top: 10vh;
 }
 
 .chatScreen__container{
@@ -48,11 +48,13 @@
 	position: fixed;
 	bottom: 0;
 	width: 100%;
+	height: 80px;
 	border-top: 1px solid lightgray;
 	background-color: white;
 }
 
 .chatScreen__input {
+	font-size: 35px;
 	flex:1;
 	padding: 10px;
 	border: none;
@@ -60,9 +62,15 @@
 
 .chatScreen__button {
 	margin-right:20px;
+	width: 10vw;
+	font-size: 35px;
 	border: none;
 	background-color: white;
 	font-weight: bolder;
 	color: #fe3d71;
 	cursor: pointer;
+}
+
+input, textarea{
+	font-size: initial;
 }

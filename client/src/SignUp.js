@@ -1,3 +1,4 @@
+import './SignUp.css';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -67,23 +68,23 @@ function SignUp() {
 
 	return (
 	<ThemeProvider theme={theme}>
-		<Container component="main" maxWidth="xs">
+		<Container component="main" maxWidth="xl">
 		<CssBaseline />
 		<Box
 			sx={{
-			marginTop: 8,
+			marginTop: 30,
 			display: 'flex',
 			flexDirection: 'column',
 			alignItems: 'center',
 			}}
 		>
-			<Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-			<LockOutlinedIcon />
+			<Avatar className='signUp__logo' sx={{ m: 1, bgcolor: 'secondary.main' }}>
+			<LockOutlinedIcon sx={{ fontSize: 60 }} />
 			</Avatar>
-			<Typography component="h1" variant="h5">
-			Sign up
-			</Typography>
-			<Box component="form" Validate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+			<h2>
+				Sign up
+			</h2>
+			<Box component="form" Validate onSubmit={handleSubmit} sx={{ mt: 5 }}>
 			<Grid container spacing={2}>
 				<Grid item xs={12}>
 				<TextField
@@ -91,7 +92,20 @@ function SignUp() {
 					fullWidth
 					name="name"
 					id="name"
-					label="name"
+					label="name"style={{height: 100}}
+					InputLabelProps={{
+					    style: {
+							fontSize: 25,
+							height: 90,
+						},
+					}}
+					inputProps={{
+				        style: {
+							fontSize: 25,
+				        	height: 90,
+				        	padding: '0 14px',
+				        },
+					}}
 					type="text"
 				/>
 				</Grid>
@@ -102,6 +116,20 @@ function SignUp() {
 					name="email"
 					id="email"
 					label="Email Address"
+					style={{height: 100}}
+					InputLabelProps={{
+					    style: {
+							fontSize: 25,
+							height: 90,
+						},
+					}}
+					inputProps={{
+				        style: {
+							fontSize: 25,
+				        	height: 90,
+				        	padding: '0 14px',
+				        },
+				}}
 					type="email"
 				/>
 				</Grid>
@@ -112,6 +140,20 @@ function SignUp() {
 					name="password"
 					id="password"
 					label="Password"
+					style={{height: 100}}
+					InputLabelProps={{
+					    style: {
+							fontSize: 25,
+							height: 90,
+						},
+					}}
+					inputProps={{
+				        style: {
+							fontSize: 25,
+				        	height: 90,
+				        	padding: '0 14px',
+				        },
+					}}
 					type={`${shown ? 'text' : 'password'}`}
 				/>
 				</Grid>
@@ -119,7 +161,7 @@ function SignUp() {
 				<FormControlLabel
 					control={<Checkbox color="primary" />}
 					onClick={() => setShown(!shown)}
-					label="show password"
+					label={<h3>show password</h3>}
 				/>
 				</Grid>
 			</Grid>
@@ -127,20 +169,20 @@ function SignUp() {
 				type="submit"
 				fullWidth
 				variant="contained"
-				sx={{ mt: 3, mb: 2 }}
+				sx={{ mt: 5, mb: 3, fontSize: 25 }}
 			>
 				Sign Up
 			</Button>
 			<Grid container justifyContent="flex-end">
 				<Grid item>
 				<Link href="/signin" variant="body2">
-					Already have an account? Sign in
+					<h3>Already have an account? Sign in</h3>
 				</Link>
 				</Grid>
 			</Grid>
 			</Box>
 		</Box>
-		<Copyright sx={{ mt: 5 }} />
+		<Copyright sx={{ mt: 8, mb: 4 }} />
 		</Container>
 	</ThemeProvider>
 	);

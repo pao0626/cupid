@@ -1,0 +1,8 @@
+.setProfile__logo {
+	width: 80px !important; 
+	height: 80px !important;
+}
+
+input, textarea{
+	font-size: initial;
+}

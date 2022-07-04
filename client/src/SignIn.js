@@ -1,3 +1,4 @@
+import './SignIn.css';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,12 +16,13 @@ import { useState } from 'react';
 import {API_SIGNIN} from './constants'
 
 
+
 function Copyright(props) {
 	return (
 	<Typography variant="body2" color="text.secondary" align="center" {...props}>
 		{'Copyright © '}
 		<Link color="inherit" href="https://github.com/pao0626">
-		Pao Github
+			Pao Github
 		</Link>{' '}
 		{new Date().getFullYear()}
 		{'.'}
@@ -64,30 +66,44 @@ function SignIn() {
 
 	return (
 	<ThemeProvider theme={theme}>
-		<Container component="main" maxWidth="xs">
+		<Container component="main" maxWidth="xl">
 		<CssBaseline />
 		<Box
 			sx={{
-			marginTop: 8,
+			marginTop: 30,
 			display: 'flex',
 			flexDirection: 'column',
 			alignItems: 'center',
 			}}
 		>
-			<Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-			<LockOutlinedIcon />
+			<Avatar className='signIn__logo' sx={{ m: 1, bgcolor: 'secondary.main', } }>
+				<LockOutlinedIcon sx={{ fontSize: 60 }}/>
 			</Avatar>
-			<Typography component="h1" variant="h5">
-			Sign in
-			</Typography>
-			<Box component="form"	Validate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-			<TextField
+			<h2>
+				Sign in
+			</h2>
+			<Box component="form"	Validate onSubmit={handleSubmit} sx={{ mt: 5 }}>
+			<TextField 
 				margin="normal"
 				required
 				fullWidth
 				id="email"
 				name="email"
 				label="Email Address"
+				style={{height: 100}}
+				InputLabelProps={{
+				    style: {
+						fontSize: 25,
+						height: 90,
+					},
+				}}
+				inputProps={{
+			        style: {
+						fontSize: 25,
+			        	height: 90,
+			        	padding: '0 14px',
+			        },
+				}}
 				type="email"
 			/>
 			<TextField
@@ -97,30 +113,45 @@ function SignIn() {
 				id="password"
 				name="password"
 				label="Password"
+				style={{height: 100}}
+				InputLabelProps={{
+				    style: {
+						fontSize: 25,
+						height: 90,
+					},
+				}}
+				inputProps={{
+			        style: {
+						fontSize: 25,
+			        	height: 90,
+			        	padding: '0 14px',
+			        },
+				}}
 				type={`${shown ? 'text' : 'password'}`}
 			/>
 			<FormControlLabel
 				control={<Checkbox color="primary" />}
 				onClick={() => setShown(!shown)}
-				label="show password"
+				label={<h3>show password</h3>}
+				sx={{fontSize: 25}}
 			/>
 			<Button
 				type="submit"
 				fullWidth
 				variant="contained"
-				sx={{ mt: 3, mb: 2 }}
+				sx={{ mt: 5, mb: 3, fontSize: 25 }}
 			>
 				Sign In
 			</Button>
-			<Grid container>
-				<Grid item xs>
+			<Grid container justifyContent="flex-end">
+				{/* <Grid item xs>
 				<Link href="#" variant="body2">
-					Forgot password?
+					<h3>Forgot password?</h3>
 				</Link>
-				</Grid>
+				</Grid> */}
 				<Grid item>
 				<Link href="/signup" variant="body2">
-					{"Don't have an account? Sign Up"}
+					<h3>Don't have an account? Sign Up</h3>
 				</Link>
 				</Grid>
 			</Grid>

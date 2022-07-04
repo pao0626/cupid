@@ -11,7 +11,7 @@ function Header() {
 	<div className='header'>
 		<Link to="/profile">
 		<IconButton>
-			<PersonIcon className='header__icon' fontSize='large'/>
+			<PersonIcon className='header__icon' sx={{ fontSize: 60 }}/>
 		</IconButton>
 		</Link>
 		<Link to="/">
@@ -22,7 +22,7 @@ function Header() {
 		</Link>
 		<Link to="/chats">
 		<IconButton> 
-			<QuestionAnswerIcon className='header__icon' fontSize='large' />
+			<QuestionAnswerIcon className='header__icon' sx={{ fontSize: 60 }} />
 		</IconButton>
 		</Link>
 	</div>

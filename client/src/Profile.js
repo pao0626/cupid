@@ -21,7 +21,7 @@ const Profile = (props) => {
 		<div className='profile__block'> 
 			<h2 className="profile__name">{props.profile.name}</h2>
 			<div className='profile__info'>
-			<AssignmentIcon className='profile__category' />		 
+			<AssignmentIcon className='profile__category' sx={{ fontSize: 35 }}/>		 
 			<p className="profile__text">{props.profile.text}</p>
 			</div>
 		</div>
@@ -29,8 +29,9 @@ const Profile = (props) => {
 		<div className='profile__button'>
 		<Button 
 			variant="outlined"
-			startIcon={<LogoutIcon />}
+			startIcon={<LogoutIcon className='profile__LogoutIcon'/>}
 			color="secondary" 
+			sx={{ fontSize: 30 }}
 			onClick={() => {
 			window.localStorage.removeItem('jwtToken');
 			window.location.href = '/';
