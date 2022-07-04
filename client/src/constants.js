@@ -1,4 +1,4 @@
-export const API_HOST = "http://localhost:80";
+export const API_HOST = "http://54.178.37.192:80";
 export const API_LOGO = `${API_HOST}/images/cupid.png`
 export const API_VERSION = "1.0";
 export const API_SIGNUP = `${API_HOST}/api/${API_VERSION}/user/signup`;
