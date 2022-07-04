@@ -28,13 +28,13 @@ const upload = multer({
 });
 
 
-const getImagePath = (protocol, hostname, userId) => {
-	if (protocol == 'http') {
-		return protocol + '://' + hostname + ':' + port + '/assets/' + userId + '/';
-	} else {
-		return protocol + '://' + hostname + '/assets/' + userId + '/';
-	}
-};
+// const getImagePath = (protocol, hostname, userId) => {
+// 	if (protocol == 'http') {
+// 		return protocol + '://' + hostname + ':' + port + '/assets/' + userId + '/';
+// 	} else {
+// 		return protocol + '://' + hostname + '/assets/' + userId + '/';
+// 	}
+// };
 
 // reference: https://thecodebarbarian.com/80-20-guide-to-express-error-handling
 const wrapAsync = (fn) => {
@@ -76,7 +76,7 @@ const authentication = (roleId) => {
 				if (!userDetail) {
 					res.status(403).send({error: 'Forbidden'});
 				} else {
-					req.user.main_image=HOST+`/api/assets/${userDetail.email}/${userDetail.main_image}`;
+					req.user.main_image=HOST+`/assets/${userDetail.email}/${userDetail.main_image}`;
 					req.user.text=userDetail.text;
 					req.user.id=userDetail.id;
 					req.user.role_id=userDetail.role_id;
@@ -95,7 +95,6 @@ const authentication = (roleId) => {
 
 module.exports = {
 	upload,
-	getImagePath,
 	wrapAsync,
 	authentication
 };

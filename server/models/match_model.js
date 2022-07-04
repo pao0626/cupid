@@ -25,7 +25,7 @@ const getCards = async (id, gender, pair ) => {
 		}
 		cards.map(
 			card => {
-				card.main_imageURL=HOST+`/api/assets/${card.email}/${card.main_image}`
+				card.main_imageURL=HOST+`/assets/${card.email}/${card.main_image}`
 			}
 		);
 
